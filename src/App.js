@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-
 import './App.css';
 //import { Navbar } from "./components/navbar.jsx";
+
+
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
   return (
@@ -48,3 +49,5 @@ function App() {
 </div> 
   );
 }
+
+export default App;

@@ -1,0 +1,117 @@
+body {
+background-color: #ffebcd;
+overflow: hidden;
+
+}
+
+h1{
+  text-align: center;
+  font-family: 'Bandusi Demo', sans-serif;
+  font-size: 150px;
+  color: #FF8DA1;
+  -webkit-text-stroke-color:black;
+  -webkit-text-stroke-width: 0.05px;
+}
+
+.task-homepage {
+  background: #FF8DA1;
+  padding: 2%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  margin-top: 3%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 7px rgb(27, 27, 27);
+}
+
+.task-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(78, 78, 78, 0.171);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.task-input-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 25px;
+  
+}
+
+.task-input-item label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: cursive;
+  font-size: 18.5px;
+}
+
+.task-input-item input{
+  padding: 8px;
+  border: none;
+  width: 250px;
+}
+
+.task-input-item input:focus{
+  border: 2px solid #ffebcd;
+    outline: none;
+}
+
+.addBtn{
+  background-color: #ffebcd;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  margin-top: 30px;
+  padding: 10px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.task-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list-item{
+  background-color: #FF8DA1;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-area{
+  margin-bottom: 15px;
+}
+.addBtn:hover{ 
+  background-color: #70575cd0;
+}
+
+.secondBtn{
+  background-color: #70575cd0;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  margin-top: 30px;
+  padding: 10px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.active{
+  background-color: #ffebcd;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  margin-top: 30px;
+  padding: 10px;
+  width: 75px;
+  cursor: pointer;
+}
