@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import { LuClipboardCheck } from "react-icons/lu";
+import { IoTrashBin } from "react-icons/io5";
 import './App.css';
 //import { Navbar } from "./components/navbar.jsx";
+
 
 
 function App() {
@@ -27,13 +30,17 @@ function App() {
         </div>
       </div>
 
-
       <div className='btn-area'>
         <button className={`secondBtn ${isCompleteScreen===false && 'active'}`}
         onClick={()=>setIsCompleteScreen(false)}>Task</button>
         
         <button className={`secondBtn ${isCompleteScreen===true && 'active'}`}
         onClick={()=>setIsCompleteScreen(true)}>Done</button>
+      </div>
+      
+      <div>
+          <IoTrashBin className='trash' />
+          <LuClipboardCheck className='checked' />
       </div>
 
       <div className='task-list'>

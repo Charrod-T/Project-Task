@@ -87,6 +87,20 @@ h1{
   margin-bottom: 10px;
 }
 
+.h3{
+  font-size: 25px;
+  color: #ffebcd;
+  font-weight: bold;
+  margin: 0;
+}
+
+.task-list-item p{
+  font-size: 14px;
+  color: gray;
+  margin-top: 0px;
+
+}
+
 .btn-area{
   margin-bottom: 15px;
 }
