@@ -72,6 +72,11 @@ h1{
   cursor: pointer;
 }
 
+.addBtn:hover{ 
+  background-color: #70575cd0;
+}
+
+
 .task-list{
   display: flex;
   flex-direction: column;
@@ -81,31 +86,54 @@ h1{
   background-color: #FF8DA1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 25px;
   padding-bottom: 10px;
   padding-top: 10px;
   margin-bottom: 10px;
+  box-shadow: 1px 1px 5px 3px gray;
+  border-radius: 5px
 }
 
-.h3{
+.task-list-item h3{
   font-size: 25px;
-  color: #ffebcd;
+  color: black;
   font-weight: bold;
   margin: 0;
+  font-family: cursive;
 }
 
 .task-list-item p{
-  font-size: 14px;
-  color: gray;
-  margin-top: 0px;
+  font-size: 17px;
+  color: #ffebcd;
+  margin-top: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+
+}
+
+.trash{
+  font-size: 35px;
+  cursor: pointer;
+  color: #ffebcd;
+}
+
+.trash:hover{
+  color: #70575cd0;
+
+}
+.check{
+  font-size: 37px;
+  margin-left: 10px;
+  color: #ffebcd;
+}
+
+.check:hover{
+color: #70575cd0;
 }
 
 .btn-area{
   margin-bottom: 15px;
-}
-.addBtn:hover{ 
-  background-color: #70575cd0;
 }
 
 .secondBtn{

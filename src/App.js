@@ -37,19 +37,20 @@ function App() {
         <button className={`secondBtn ${isCompleteScreen===true && 'active'}`}
         onClick={()=>setIsCompleteScreen(true)}>Done</button>
       </div>
-      
-      <div>
-          <IoTrashBin className='trash' />
-          <LuClipboardCheck className='checked' />
-      </div>
 
       <div className='task-list'>
 
-        <div className='task-list-items'>
+        <div className='task-list-item'>
         <div>
           <h3>Task 1</h3>
           <p>Description</p>
         </div>
+         
+      <div>
+          <IoTrashBin className='trash' />
+          <LuClipboardCheck className='check' />
+      </div>
+      
       </div>
     </div>
   </div>
