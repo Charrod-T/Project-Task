@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
-import { BiTask } from "react-icons/bi";
 import './App.css';
 
 //import { Navbar } from "./components/navbar.jsx";
@@ -9,11 +8,11 @@ import './App.css';
 
 
 function App() {
-  const [isCompleteScreen, setIsCompleteScreen] = useState(false);
+  const [isCompleteTask, setIsCompleteTask] = useState(false);
   const [allTask, setTask] =useState([]);
-  const [newTask, setNewTask] = useState("");
-  const [newDescription, setNewDescription] = useState("");
-
+  const [newTask, setNewTask] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [completeTask, setCompleteTask] = useState([]);
 
   const handleAddTask = () => {
     let newTaskItem = {
@@ -27,6 +26,33 @@ function App() {
     localStorage.setItem('task-list', JSON.stringify(updatedTaskArr))
   };
 
+  const handleDeleteTask = (index)=> {
+    let reducedTask = [...allTask];
+    reducedTask.splice(index,1);
+
+    localStorage.setItem('task-list', JSON.stringify(reducedTask));
+    setTask(reducedTask)
+  };
+
+  const handleComplete =(index)=>{
+    let time = new Date();
+    let dd = time.getDate();
+    let h = time.getHours();
+    let m = time.getMinutes();
+    let s = time.getSeconds();
+
+    let completeOn = h + ':' + m + ':' + s
+
+    let filterTask ={
+      ...allTask[index],
+      completeOn: completeOn
+    }
+
+    let updatedCompletedArr = [...completeTask];
+    updatedCompletedArr.push(filterTask);
+    setCompleteTask(updatedCompletedArr);
+    handleDeleteTask(index);
+ }
   useEffect(()=>{
     let savedTask = JSON.parse(localStorage.getItem('task-list'))
     if (savedTask){
@@ -57,16 +83,17 @@ function App() {
       </div>
 
       <div className='btn-area'>
-        <button className={`secondBtn ${isCompleteScreen===false && 'active'}`}
-        onClick={()=>setIsCompleteScreen(false)}>Task</button>
+        <button className={`secondBtn ${isCompleteTask===false && 'active'}`}
+        onClick={()=>setIsCompleteTask(false)}>Task</button>
         
-        <button className={`secondBtn ${isCompleteScreen===true && 'active'}`}
-        onClick={()=>setIsCompleteScreen(true)}>Done</button>
+        <button className={`secondBtn ${isCompleteTask===true && 'active'}`}
+        onClick={()=>setIsCompleteTask(true)}>Done</button>
       </div>
 
       <div className='task-list'>
 
-        {allTask.map((item, index) => {
+        {isCompleteTask==false && allTask.map((item, index) => {
+          
           return(
         <div className='task-list-item' key={index}>
         <div>
@@ -75,8 +102,27 @@ function App() {
         </div>
          
       <div>
-          <IoTrashBin className='trash' />
-          <LuClipboardCheck className='check' />
+          <IoTrashBin className='trash' onClick={()=>handleDeleteTask(index)} />
+          <LuClipboardCheck className='check' onClick={()=>handleComplete(index)}/>
+      </div>
+      
+      </div>
+       );
+      })}
+
+      {isCompleteTask==true && completeTask.map((item, index) => {
+          
+          return(
+        <div className='task-list-item' key={index}>
+        <div>
+          <h3>{item.task}</h3>
+          <p>{item.description}</p>
+           <p><small>Complete on:{item.completeOn}</small></p>
+        </div>
+         
+      <div>
+          <IoTrashBin className='trash' onClick={()=>handleDeleteTask(index)} />
+          <LuClipboardCheck className='check' onClick={()=>handleComplete(index)}/>
       </div>
       
       </div>
