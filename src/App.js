@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
+import { BiTask } from "react-icons/bi";
 import './App.css';
-import { BiTask } from 'react-icons/bi';
+
 //import { Navbar } from "./components/navbar.jsx";
 
 
@@ -23,7 +24,15 @@ function App() {
     let updatedTaskArr =[...allTask];
     updatedTaskArr.push(newTaskItem)
     setTask(updatedTaskArr);
-  }
+    localStorage.setItem('task-list', JSON.stringify(updatedTaskArr))
+  };
+
+  useEffect(()=>{
+    let savedTask = JSON.parse(localStorage.getItem('task-list'))
+    if (savedTask){
+      setTask(savedTask);
+    }
+  },[])
 
   return (
     <div className="App">
