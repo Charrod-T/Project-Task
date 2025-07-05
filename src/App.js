@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
+//import ReactDOM  from 'react-dom/client';
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
+import "./Navbar.css";
 import './App.css';
-
-//import { Navbar } from "./components/navbar.jsx";
 
 
 
