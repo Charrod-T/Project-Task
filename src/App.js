@@ -37,28 +37,46 @@ function App() {
   const handleComplete =(index)=>{
     let time = new Date();
     let dd = time.getDate();
+    let mm = time.getMonth () + 1;
+    let yyyy = time.getFullYear ();
     let h = time.getHours();
     let m = time.getMinutes();
-    let s = time.getSeconds();
 
-    let completeOn = h + ':' + m + ':' + s
+    let completeOn = mm + '-' + dd + '-' + yyyy + ' at ' + h + ':' + m;
 
     let filterTask ={
       ...allTask[index],
       completeOn: completeOn
     }
 
-    let updatedCompletedArr = [...completeTask];
-    updatedCompletedArr.push(filterTask);
-    setCompleteTask(updatedCompletedArr);
+    let updatedCompleteArr = [...completeTask];
+    updatedCompleteArr.push(filterTask);
+    setCompleteTask(updatedCompleteArr);
     handleDeleteTask(index);
- }
+    localStorage.setItem('completeTask', JSON.stringify(updatedCompleteArr));
+  };
+
+  
+  const handleDeleteCompleteTask = (index)=> {
+    let reducedTask = [...completeTask];
+    reducedTask.splice(index,1);
+
+    localStorage.setItem('completeTask', JSON.stringify(reducedTask));
+    setCompleteTask(reducedTask)
+  }
+
   useEffect(()=>{
-    let savedTask = JSON.parse(localStorage.getItem('task-list'))
+    let savedTask = JSON.parse(localStorage.getItem('task-list'));
+    let savedCompleteTask = JSON.parse(localStorage.getItem('completeTask'));
+
     if (savedTask){
       setTask(savedTask);
     }
-  },[])
+
+    if(savedCompleteTask){
+      setCompleteTask(savedCompleteTask);
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -121,8 +139,7 @@ function App() {
         </div>
          
       <div>
-          <IoTrashBin className='trash' onClick={()=>handleDeleteTask(index)} />
-          <LuClipboardCheck className='check' onClick={()=>handleComplete(index)}/>
+          <IoTrashBin className='trash' onClick={()=>handleDeleteCompleteTask(index)} />
       </div>
       
       </div>
