@@ -110,7 +110,7 @@ function App() {
 
       <div className='task-list'>
 
-        {isCompleteTask==false && allTask.map((item, index) => {
+        {isCompleteTask===false && allTask.map((item, index) => {
           
           return(
         <div className='task-list-item' key={index}>
@@ -128,7 +128,7 @@ function App() {
        );
       })}
 
-      {isCompleteTask==true && completeTask.map((item, index) => {
+      {isCompleteTask===true && completeTask.map((item, index) => {
           
           return(
         <div className='task-list-item' key={index}>
