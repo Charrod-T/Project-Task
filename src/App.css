@@ -9,8 +9,6 @@ h1{
   font-family: 'Bandusi Demo', sans-serif;
   font-size: 150px;
   color: #FF8DA1;
-  -webkit-text-stroke-color:black;
-  -webkit-text-stroke-width: 0.05px;
 }
 
 .task-homepage {

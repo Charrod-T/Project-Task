@@ -2,12 +2,29 @@ import React, {useState} from 'react';
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
 import './App.css';
+import { BiTask } from 'react-icons/bi';
 //import { Navbar } from "./components/navbar.jsx";
 
 
 
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
+  const [allTask, setTask] =useState([]);
+  const [newTask, setNewTask] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+
+
+  const handleAddTask = () => {
+    let newTaskItem = {
+      task:newTask,
+      description:newDescription
+    }
+
+    let updatedTaskArr =[...allTask];
+    updatedTaskArr.push(newTaskItem)
+    setTask(updatedTaskArr);
+  }
+
   return (
     <div className="App">
       <h1>My To Do List</h1>
@@ -18,15 +35,15 @@ function App() {
         <div className='task-input-item'>
           
           <label>Task</label>
-          <input type="text" aria-placeholder="what's the task title?"/>
+          <input type="text" value= {newTask} onChange= {(e) => setNewTask(e.target.value)} aria-placeholder="what's the task title?"/>
         </div>
         <div className='task-input-item'>
           <label>Description</label>
-          <input type="text" aria-placeholder="what's the task title?"/>
+          <input type="text" value= {newDescription} onChange= {(e) => setNewDescription(e.target.value)} aria-placeholder="what's the task title?"/>
         </div>
         <div className='task-input-item'>
 
-          <button type="button" className="addBtn">Add Task</button>
+          <button type="button" onClick={handleAddTask} className="addBtn">Add Task</button>
         </div>
       </div>
 
@@ -40,10 +57,12 @@ function App() {
 
       <div className='task-list'>
 
-        <div className='task-list-item'>
+        {allTask.map((item, index) => {
+          return(
+        <div className='task-list-item' key={index}>
         <div>
-          <h3>Task 1</h3>
-          <p>Description</p>
+          <h3>{item.task}</h3>
+          <p>{item.description}</p>
         </div>
          
       <div>
@@ -52,6 +71,8 @@ function App() {
       </div>
       
       </div>
+       );
+      })}
     </div>
   </div>
 </div> 
