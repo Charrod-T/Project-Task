@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-//import ReactDOM  from 'react-dom/client';
+//import ReactDOM from 'react-dom/client';
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
-import "./Navbar.css";
 import './App.css';
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./Navbar";
+
+
 
 
 function App() {
@@ -79,8 +80,13 @@ function App() {
   }, []);
 
   return (
+    
     <div className="App">
-      <Navbar />
+
+    <Navbar/>
+
+
+    
       <h1>My To Do List</h1>
 
 
@@ -106,7 +112,7 @@ function App() {
         onClick={()=>setIsCompleteTask(false)}>Task</button>
         
         <button className={`secondBtn ${isCompleteTask===true && 'active'}`}
-        onClick={()=>setIsCompleteTask(true)}>Done</button>
+        onClick={()=>setIsCompleteTask(true)}>Complete</button>
       </div>
 
       <div className='task-list'>
@@ -120,6 +126,7 @@ function App() {
           <p>{item.description}</p>
         </div>
          
+      
       <div>
           <IoTrashBin className='trash' onClick={()=>handleDeleteTask(index)} />
           <LuClipboardCheck className='check' onClick={()=>handleComplete(index)}/>

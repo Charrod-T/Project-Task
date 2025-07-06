@@ -3,6 +3,12 @@ background-color: #ffebcd;
 overflow: hidden;
 
 }
+.nav{
+background-color: black;
+color:white;
+text-align: center;
+
+}
 
 h1{
   text-align: center;
@@ -155,3 +161,4 @@ color: #70575cd0;
   width: 75px;
   cursor: pointer;
 }
+
