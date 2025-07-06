@@ -4,7 +4,7 @@ import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
 import "./Navbar.css";
 import './App.css';
-
+import { Navbar } from "./components/Navbar";
 
 
 function App() {
@@ -80,6 +80,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <h1>My To Do List</h1>
 
 
