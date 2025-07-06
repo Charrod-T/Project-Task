@@ -4,8 +4,7 @@ import { IoTrashBin } from "react-icons/io5";
 import './App.css';
 
 
-
-function App() {
+function App () {
   const [isCompleteTask, setIsCompleteTask] = useState(false);
   const [allTask, setTask] =useState([]);
   const [newTask, setNewTask] = useState('');
