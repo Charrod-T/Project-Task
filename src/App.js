@@ -1,9 +1,16 @@
 import React, {useEffect, useState} from 'react';
 //import ReactDOM from 'react-dom/client';
+//import { Routes, Route } from "react-router-dom";
 import { LuClipboardCheck } from "react-icons/lu";
 import { IoTrashBin } from "react-icons/io5";
-import './App.css';
 import { Navbar } from "./Navbar";
+//import  {Home}  from "./Home.jsx";
+//import  Task  from './Task';
+//import  Completed  from "./in";
+//import  Contact  from "./index";
+//import {BrowserRouter} from "./Navbar";
+//import {Link} from './Navbar';
+import './App.css';
 
 
 
@@ -153,6 +160,7 @@ function App() {
       </div>
        );
       })}
+      
     </div>
   </div>
 </div> 

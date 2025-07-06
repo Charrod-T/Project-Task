@@ -1,20 +1,19 @@
-import React from 'react'
-
+import React from 'react';
+import  {Home}  from "./Components/Home.jsx";
 
 
 export const Navbar = () => {
  return (
     <nav className='nav'>
-        <li>Home</li>
-        <li>Task</li>
-        <li>Completed</li>
-        <li>Contact</li>
-        
+        <ul>
+            <li>
+                
+            </li>
+            
+        </ul>
     </nav>
   );
-}
-
-
+};
 
 
  
